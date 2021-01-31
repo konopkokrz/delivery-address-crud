@@ -9,7 +9,6 @@ import java.util.List;
 @Repository
 public interface DeliveryAddressRepository extends JpaRepository<DeliveryAddress, Long> {
 
-    List<DeliveryAddress> findAll();
+    List<DeliveryAddress> findAllByUserId(Long userId);
 
-    List<DeliveryAddress> findByUserId(Long userId);
 }
