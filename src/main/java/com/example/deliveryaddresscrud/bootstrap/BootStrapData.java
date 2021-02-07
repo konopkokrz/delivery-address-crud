@@ -1,7 +1,7 @@
 package com.example.deliveryaddresscrud.bootstrap;
 
-import com.example.deliveryaddresscrud.api.DeliveryAddress;
-import com.example.deliveryaddresscrud.api.User;
+import com.example.deliveryaddresscrud.entity.DeliveryAddress;
+import com.example.deliveryaddresscrud.entity.User;
 import com.example.deliveryaddresscrud.repository.DeliveryAddressRepository;
 import com.example.deliveryaddresscrud.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;

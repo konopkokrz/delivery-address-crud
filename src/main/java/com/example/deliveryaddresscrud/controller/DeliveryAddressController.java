@@ -1,11 +1,11 @@
 package com.example.deliveryaddresscrud.controller;
 
-import com.example.deliveryaddresscrud.api.DeliveryAddressResponse;
+import com.example.deliveryaddresscrud.api.dto.AddDeliveryAddressRequest;
+import com.example.deliveryaddresscrud.api.dto.DeliveryAddressResponse;
 import com.example.deliveryaddresscrud.service.DeliveryAddressService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("delivery-address")
@@ -16,7 +16,6 @@ public class DeliveryAddressController {
     public DeliveryAddressController(DeliveryAddressService deliveryAddressService) {
         this.deliveryAddressService = deliveryAddressService;
     }
-
 
     @GetMapping
     public DeliveryAddressResponse getAllAddresses() {
@@ -30,5 +29,10 @@ public class DeliveryAddressController {
         DeliveryAddressResponse response = new DeliveryAddressResponse();
         response.setDeliveryAddresses(deliveryAddressService.findByUserId(userId));
         return response;
+    }
+
+    @PostMapping("/{userId}")
+    public void addDeliveryAddress(@PathVariable("userId") Long userId, @Valid @RequestBody AddDeliveryAddressRequest request) {
+        deliveryAddressService.addDeliveryAddress(userId, request);
     }
 }
