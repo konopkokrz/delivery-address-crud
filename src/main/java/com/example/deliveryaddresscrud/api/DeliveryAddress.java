@@ -2,8 +2,10 @@ package com.example.deliveryaddresscrud.api;
 
 import lombok.Data;
 
-import javax.persistence.*;
-import java.time.Instant;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Data
 @Entity
@@ -22,5 +24,5 @@ public class DeliveryAddress {
     private String city;
     private String addressName;
     private boolean isDefault;
-    private Instant creationDay;
+    private Long creationDate;
 }
